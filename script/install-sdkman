@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ ! -d "$HOME/.sdkman" ]; then
+    echo "Installing sdkman..."
+    curl -s https://get.sdkman.io | bash
+else
+    echo "Checking for sdkman updates..."
+    source $HOME/.bash_profile
+    sdk selfupdate
+fi
