@@ -8,3 +8,4 @@ export STRAP_GITHUB_USER=${STRAP_GITHUB_USER:="gr8routdoors"}
 
 script/install-oh-my-zsh
 script/install-sdkman
+script/open-manual-step-docs

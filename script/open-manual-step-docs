@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "Opening doc explaining how to set the font and appearance of zsh..."
+open https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961
+# open https://medium.com/@manisht/iterm2-zsh-oh-my-zsh-on-mac-b64fc435e5d
