@@ -3,5 +3,8 @@
 
 cd $(dirname $0)/..
 
+export STRAP_GITHUB_HOST=${STRAP_GITHUB_HOST:="github.com"}
+export STRAP_GITHUB_USER=${STRAP_GITHUB_USER:="gr8routdoors"}
+
 script/install-oh-my-zsh
 script/install-sdkman
