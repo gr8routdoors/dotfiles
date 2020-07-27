@@ -3,8 +3,12 @@
 
 cd $(dirname $0)/..
 
+# The location to find the strap dotfiles and oh-my-zsh repos
 export STRAP_GITHUB_HOST=${STRAP_GITHUB_HOST:="github.com"}
 export STRAP_GITHUB_USER=${STRAP_GITHUB_USER:="gr8routdoors"}
+
+# The location to use for the hub github host (for GH enterprise)
+export GITHUB_HOST=${GITHUB_HOST:="github.com"}
 
 script/install-oh-my-zsh
 script/install-sdkman
