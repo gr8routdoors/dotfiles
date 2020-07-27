@@ -1,0 +1,2 @@
+# Configures hub for custom github enterprise hosts
+git config --global --add hub.host "$GITHUB_HOST"
