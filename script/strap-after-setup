@@ -11,7 +11,7 @@ export STRAP_GITHUB_USER=${STRAP_GITHUB_USER:="gr8routdoors"}
 export GIT_HOST=${GIT_HOST:="github.com"}
 export GIT_USER=${GIT_USER:=$USER}
 
-script/configure-hub
+script/configure-git
 script/install-oh-my-zsh
 script/install-sdkman
 script/open-manual-step-docs

@@ -1,0 +1,33 @@
+#!/bin/bash
+
+echo "Configuring git..."
+
+# Strap by default sets user to the same user you're getting config from
+git config --global github.user "$GIT_USER"
+
+# Configures hub for custom github enterprise hosts
+git config --global hub.host "$GIT_HOST"
+
+echo "Configuring ssh..."
+if [ ! -f "$HOME/.ssh/id_rsa" ]; then
+    ssh-keygen -t rsa -b 4096 -C "$STRAP_GIT_EMAIL" -f $HOME/.ssh/id_rsa
+    eval "$(ssh-agent -s)"
+    echo "Created SSH key."
+fi
+
+SSH_EXISTS=`grep -c id_rsa $HOME/.ssh/config`
+if [ $SSH_EXISTS -eq 0 ]; then
+    echo "Writing ssh config..."
+    touch $HOME/.ssh/config 
+    cat <<EOF >>$HOME/.ssh/config
+
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_rsa
+EOF
+    ssh-add -K $HOME/.ssh/id_rsa
+    pbcopy < $HOME/.ssh/id_rsa.pub
+
+    echo "Copied ssh public key to clipboard to add to github." 
+fi

@@ -8,3 +8,5 @@ This is designed to work with [strap](https://github.com/MikeMcQuaid/strap) usin
 * `GIT_USER`: the user to use for git (default: `$USER`)
 * `STRAP_GITHUB_HOST`: the github host to look under for repos these scripts depend on. (default: `github.com`)
 * `STRAP_GITHUB_USER`: the github user/org to look under for repos these scripts depend on (default: `gr8routdoors`)
+* `STRAP_GIT_EMAIL`: the email address for git to use
+

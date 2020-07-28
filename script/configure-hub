@@ -1,9 +1,0 @@
-#!/bin/bash
-
-echo "Configuring git..."
-
-# Strap by default sets user to the same user you're getting config from
-git config --global github.user "$GIT_USER"
-
-# Configures hub for custom github enterprise hosts
-git config --global hub.host "$GIT_HOST"
