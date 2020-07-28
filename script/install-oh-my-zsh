@@ -4,14 +4,13 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo "Installing oh-my-zsh..."
     sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-    echo "Looking to apply custom oh-my-zsh config from github..."
-    cd $HOME/.oh-my-zsh/custom && git clone "https://$STRAP_GITHUB_HOST/$STRAP_GITHUB_USER/oh-my-zsh.git"
-
 else
     echo "Checking for oh-my-zsh updates..."
     sh -c "$(cat $ZSH/tools/upgrade.sh)"
-
-    echo "Refreshing custom oh-my-zsh config from github..."
-    echo "Checking $STRAP_GITHUB_HOST/$STRAP_GITHUB_USER/oh-my-zsh.git"
-    cd $HOME/.oh-my-zsh/custom && git pull
 fi
+
+
+echo "Applying custom oh-my-zsh config from github..."
+rm -rf $HOME/.oh-my-zsh/custom
+git clone "https://$STRAP_GITHUB_HOST/$STRAP_GITHUB_USER/oh-my-zsh.git" $HOME/.oh-my-zsh/custom
+
