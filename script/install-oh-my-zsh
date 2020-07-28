@@ -4,6 +4,12 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo "Installing oh-my-zsh..."
     sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+    echo "Installing powerlevel10k theme..."
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+    echo "Adding powerlevel10k fonts..."
+    p10k configure
+
 else
     echo "Checking for oh-my-zsh updates..."
     sh -c "$(cat $ZSH/tools/upgrade.sh)"
