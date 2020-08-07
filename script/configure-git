@@ -8,6 +8,37 @@ git config --global github.user "$GIT_USER"
 # Configures hub for custom github enterprise hosts
 git config --global hub.host "$GIT_HOST"
 
+# Add git aliases
+GIT_ALIASES_CONFIGURED=`grep -c aliases $HOME/.gitconfig`
+if [ $GIT_ALIASES_CONFIGURED -eq 0 ]; then
+    echo "Writing git aliases..."
+    cat <<EOF >>$HOME/.gitconfig
+    
+[alias]
+  # Part of https://github.com/GitAlias/gitalias/blob/master/gitalias.txt
+  
+  ##
+  # One letter alias for our most frequent commands.
+  #
+  # Guidelines: these aliases do not use options, because we want
+  # these aliases to be easy to compose and use in many ways.
+  ##
+
+  a = add
+  b = branch
+  c = commit
+  d = diff
+  f = fetch
+  g = grep
+  l = log
+  m = merge
+  o = checkout
+  p = pull
+  r = remote
+  s = status
+  w = whatchanged
+EOF
+
 echo "Configuring ssh..."
 if [ ! -f "$HOME/.ssh/id_rsa" ]; then
     ssh-keygen -t rsa -b 4096 -C "$STRAP_GIT_EMAIL" -f $HOME/.ssh/id_rsa
