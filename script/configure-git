@@ -32,7 +32,7 @@ if [ $GIT_ALIASES_CONFIGURED -eq 0 ]; then
   g = grep
   l = log
   m = merge
-  o = checkout
+  co = checkout
   p = pull
   r = remote
   s = status
